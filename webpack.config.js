@@ -2,7 +2,7 @@ var webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 var path = require('path');
 
-var BUILD_DIR = path.resolve(__dirname, 'src/dist');
+var BUILD_DIR = path.resolve(__dirname, 'dist');
 var APP_DIR = path.resolve(__dirname, 'src/client/app');
 var INDEX_DIR = path.resolve(__dirname, 'src/client');
 var config = {
