@@ -6,7 +6,7 @@ class App extends React.Component {
   render () {
     return(
       <div>
-        <p> Hello React Projecta</p>
+        <p> Hello React Project   a</p>
         <AwesomeComponent />
         
       </div>
