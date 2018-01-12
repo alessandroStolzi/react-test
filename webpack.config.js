@@ -18,11 +18,17 @@ var config = {
     filename: 'bundle.js'
   },
   module : {
-    loaders : [
+    rules : [
+      {test : /\.jsx?/, include : APP_DIR,loader : 'babel-loader'},
       {
-        test : /\.jsx?/,
-        include : APP_DIR,
-        loader : 'babel-loader'
+        test: /\.scss$/,
+        use: [{
+            loader: "style-loader" // creates style nodes from JS strings
+        }, {
+            loader: "css-loader" // translates CSS into CommonJS
+        }, {
+            loader: "sass-loader" // compiles Sass to CSS
+        }]
       }
     ]
   },
@@ -32,7 +38,7 @@ var config = {
     // It also adds hash to all injected assets so we don't have problems
     // with cache purging during deployment.
     new HtmlWebpackPlugin({
-      title: 'Extra Banca',
+      title: 'React-start',
       // baseUrl: global.cmdOptions.baseUrl,
       template: INDEX_DIR + '/index.html',
       // favicon: 'client/icon/favicon.ico',
