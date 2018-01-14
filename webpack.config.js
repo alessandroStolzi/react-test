@@ -19,7 +19,7 @@ var config = {
   },
   module : {
     rules : [
-      {test : /\.js?/, include : APP_DIR,loader : 'babel-loader'},
+      {test : /\.(js|jsx)?/, include : APP_DIR,loader : 'babel-loader'},
       {
         test: /\.scss$/,
         use: [{
@@ -39,8 +39,11 @@ var config = {
         }, {
             loader: "sass-loader" // compiles Sass to CSS
         }]
-      }
-    ]
+      },{
+        test: /\.(js|jsx)?$/,
+        exclude: /node_modules/,
+        loaders: ['eslint-loader']
+      }]
   },
   plugins: [
    // new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),

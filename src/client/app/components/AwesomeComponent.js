@@ -19,7 +19,7 @@ class AwesomeComponent extends React.Component {
       
       <div>
         Likes : <span>{this.props.value}</span>
-        <div><button className='btn btn-primary' onClick={this.props.addCounter}>Like Me!!!!!</button></div>
+        <div><button className='btn btn-primary' onClick={()=>this.props.addCounter(44)}>Like Me!!!!!</button></div>
       </div>
     );
   }
@@ -35,7 +35,7 @@ const mapToStateProps =(state)=>{
 const mapDispatcProps =(dispatch)=>{
   return {
       addCounter :(value) =>{
-        dispatch(addVal({ val: 110 }))
+        dispatch(addVal({ val: value }))
       } 
   }
 }
