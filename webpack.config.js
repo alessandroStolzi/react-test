@@ -6,7 +6,7 @@ var BUILD_DIR = path.resolve(__dirname, 'dist');
 var APP_DIR = path.resolve(__dirname, 'src/client/app');
 var INDEX_DIR = path.resolve(__dirname, 'src/client');
 var config = {
-  entry: APP_DIR + '/index.jsx',
+  entry: APP_DIR + '/index.js',
   devtool: 'inline-source-map',
   devServer: {
     contentBase: path.join(__dirname, "dist"),
@@ -19,7 +19,7 @@ var config = {
   },
   module : {
     rules : [
-      {test : /\.jsx?/, include : APP_DIR,loader : 'babel-loader'},
+      {test : /\.js?/, include : APP_DIR,loader : 'babel-loader'},
       {
         test: /\.scss$/,
         use: [{
