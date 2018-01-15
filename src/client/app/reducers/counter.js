@@ -2,9 +2,9 @@ import { INCREMENT, DECREMENT } from '../actions/addActions';
 
 const initialState = { name: 'ale', value: 0 };
 
-export default function counter(state = initialState, action) {
+export default function (state = initialState, action) {
   // console.log(action.value);
-  console.log(state);
+  // console.log(state);
   switch (action.type) {
     case INCREMENT: {
       const newState = {
@@ -26,3 +26,4 @@ export default function counter(state = initialState, action) {
       return state;
   }
 }
+
