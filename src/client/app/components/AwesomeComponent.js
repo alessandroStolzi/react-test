@@ -5,15 +5,6 @@ import { addVal } from '../actions/addActions';
 // import {INCREMENT,DECREMENT} from '../actions/addActions'
 
 class AwesomeComponent extends React.Component {
-  constructor(...props) {
-    super(props);
-  }
-
-  // onLike () {
-  //   let newLikesCount = this.state.likesCount + 1;
-  //   this.setState({likesCount: newLikesCount});
-  // }
-
   render() {
     return (
       <div>
@@ -32,7 +23,7 @@ class AwesomeComponent extends React.Component {
 }
 
 AwesomeComponent.propTypes = {
-  value: PropTypes.string.isRequired,
+  value: PropTypes.number.isRequired,
   addCounter: PropTypes.func.isRequired
 };
 

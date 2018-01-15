@@ -4,9 +4,6 @@ import { connect } from 'react-redux';
 import AwesomeComponent from './components/AwesomeComponent';
 
 class App extends React.Component {
-  constructor(...props) {
-    super(props);
-  }
   render() {
     return (
       <div className="container">
