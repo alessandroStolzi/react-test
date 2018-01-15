@@ -6,8 +6,6 @@ import AwesomeComponent from './components/AwesomeComponent';
 class App extends React.Component {
   constructor(...props) {
     super(props);
-    // this.state = {likesCount : 0};
-    // this.onLike = this.onLike.bind(this);
   }
   render() {
     return (
