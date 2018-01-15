@@ -11,6 +11,7 @@
     "no-use-before-define": ["error", { "functions": false, "classes": true }],
     "comma-dangle": ["error", {"functions": "ignore"}],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "linebreak-style": 0
+    "linebreak-style": 0,
+    "react/prefer-stateless-function": [0, { "ignorePureComponents": true }]
   }
 }
