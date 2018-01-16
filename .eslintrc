@@ -15,6 +15,7 @@
     "react/prefer-stateless-function": [0, { "ignorePureComponents": true }],
     "import/no-mutable-exports": [0],
     "react/forbid-prop-types": [1, { "forbid": ["any", "array", "object"]}],
+    // "react/prop-types": 0,
     "jsx-a11y/label-has-for": [ 1, {
             "components": [ "Label" ],
             "required": {

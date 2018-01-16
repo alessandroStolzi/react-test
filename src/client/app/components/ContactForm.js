@@ -13,20 +13,23 @@ const validate = (values) => {
 };
 
 const renderInput = ({ input, meta, label }) => (
-  <div className="form-group">
+  <div className="form-group invalid ">
     <pre>{JSON.stringify(meta, 0, 2)}</pre>
     <label className="control-label">{label}</label>
     <input className="form-control" {...input} />
+    <span>{meta.error}</span>
   </div>
 );
 renderInput.propTypes = {
   input: PropTypes.object,
-  meta: PropTypes.object
+  meta: PropTypes.object,
+  label: PropTypes.string
 };
 
 renderInput.defaultProps = {
-  input: 'input',
-  meta: 'meta'
+  input: {},
+  meta: {},
+  label: ''
 };
 
 let ContactForm = ({ handleSubmit, submitting }) => (
@@ -46,13 +49,15 @@ ContactForm.propTypes = {
 };
 
 ContactForm.defaultProps = {
-  handleSubmit: {},
-  submitting: {}
+  handleSubmit: () => {},
+  submitting: () => {}
 };
 
 ContactForm = reduxForm({
   // a unique name for the form
-  form: 'contact'
+  form: 'contact',
+  destroyOnUnmount: false,
+  validate
 })(ContactForm);
 
 export default ContactForm;
