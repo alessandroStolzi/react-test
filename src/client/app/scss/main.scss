@@ -2,3 +2,8 @@
 .text-in{
     background-color: brown
 }
+.has-error sub{
+    @extend sub;
+    color : $brand-danger;
+    margin-top: 6px;
+}

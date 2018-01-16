@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-// import AwesomeComponent from './components/AwesomeComponent';
+import AwesomeComponent from './components/AwesomeComponent';
 import ContactForm from './components/ContactForm';
 
 class App extends React.Component {
@@ -16,7 +16,7 @@ class App extends React.Component {
         <div className="row">
           <div className="col md-12">
             <ContactForm />
-            {/* <AwesomeComponent /> */}
+            <AwesomeComponent />
           </div>
         </div>
       </div>

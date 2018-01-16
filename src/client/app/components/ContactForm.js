@@ -1,6 +1,7 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 import showResults from '../showResults';
 
@@ -12,14 +13,21 @@ const validate = (values) => {
   return errors;
 };
 
-const renderInput = ({ input, meta, label }) => (
-  <div className="form-group invalid ">
-    <pre>{JSON.stringify(meta, 0, 2)}</pre>
-    <label className="control-label">{label}</label>
-    <input className="form-control" {...input} />
-    <span>{meta.error}</span>
-  </div>
-);
+const renderInput = ({ input, meta, label }) => {
+  const formClasses = classNames({
+    'form-group': true,
+    'has-error': meta.touched && meta.error
+  });
+  return (
+    <div className={formClasses}>
+      <pre>{JSON.stringify(meta, 0, 2)}</pre>
+      <label className="control-label">{label}</label>
+      <input className="form-control" {...input} />
+      <sub className="pull-right has-error">{meta.touched && meta.error}</sub>
+    </div>
+  );
+};
+
 renderInput.propTypes = {
   input: PropTypes.object,
   meta: PropTypes.object,
@@ -32,32 +40,17 @@ renderInput.defaultProps = {
   label: ''
 };
 
-let ContactForm = ({ handleSubmit, submitting }) => (
+const ContactForm = ({ handleSubmit, submitting }) => (
   <form onSubmit={handleSubmit(showResults)}>
     <Field name="firstName" label="fefwefwf" component={renderInput} type="text" />
-
     <button type="submit" className="btm btn primary" disabled={submitting}>
       submit
     </button>
   </form>
 );
-// const { handleSubmit } = props;
-// return <form onSubmit={handleSubmit}>{/* form body */}</form>;
-ContactForm.propTypes = {
-  handleSubmit: PropTypes.func,
-  submitting: PropTypes.func
-};
 
-ContactForm.defaultProps = {
-  handleSubmit: () => {},
-  submitting: () => {}
-};
-
-ContactForm = reduxForm({
-  // a unique name for the form
-  form: 'contact',
+export default reduxForm({
+  form: 'submitValidation',
   destroyOnUnmount: false,
   validate
 })(ContactForm);
-
-export default ContactForm;
