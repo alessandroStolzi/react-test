@@ -2,29 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-class inputText extends React.Component {
-  // console.log('a');
-  constructor(props) {
-    super(props);
-    this.state = props;
-  }
-  render() {
-    const formClasses = classNames({
-      'form-group': true,
-      'has-error': this.props.meta.touched && this.props.meta.error
-    });
-    return (
+const inputText = (props) => {
+  const formClasses = classNames({
+    'form-group': true,
+    'has-error': props.meta.touched && props.meta.error
+  });
+  return (
+    <div>
       <div className={formClasses}>
-        <pre>{JSON.stringify(this.props.meta, 0, 2)}</pre>
-        <label className="control-label">{this.props.label}</label>
-        <input className="form-control" {...this.props.input} />
-        <sub className="pull-right has-error">{
-          this.props.meta.touched && this.props.meta.error}
-        </sub>
+        <label className="control-label">{props.label}</label>
+        <input className="form-control" {...props.input} />
       </div>
-    );
-  }
-}
+      <sub className="pull-right has-error">
+        {
+          props.meta.touched && props.meta.error
+        }
+      </sub>
+    </div>
+  );
+};
 inputText.propTypes = {
   input: PropTypes.object,
   meta: PropTypes.object,
@@ -36,4 +32,5 @@ inputText.defaultProps = {
   meta: {},
   label: ''
 };
+
 export default inputText;
