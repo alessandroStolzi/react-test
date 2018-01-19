@@ -3,9 +3,8 @@ import React from 'react';
 const submit = props => (
   <div>
     <button type="submit" className="btn btn-primary" disabled={props.disabled}>
-        submit
+      submit
     </button>
   </div>
-  // {props.disabled)?'pippo':''}
 );
 export default submit;

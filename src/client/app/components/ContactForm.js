@@ -19,7 +19,6 @@ const ContactForm = (props) => {
   const { handleSubmit, submitting } = props;
   return (
     <form onSubmit={handleSubmit(showResults)}>
-      <pre>{JSON.stringify((submitting && !props.valid), 0, 2)}</pre>
       <Field name="firstName" label="fefwefwf" component={inputText} type="text" />
       <Field name="sec" label="sec" component={inputText} type="text" />
       <Submit disabled={submitting || !props.valid} />
