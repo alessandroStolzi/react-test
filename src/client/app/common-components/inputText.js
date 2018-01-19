@@ -13,11 +13,7 @@ const inputText = (props) => {
         <label className="control-label">{props.label}</label>
         <input className="form-control" {...props.input} />
       </div>
-      <sub className="pull-right has-error">
-        {
-          props.meta.touched && props.meta.error
-        }
-      </sub>
+      <sub className="pull-right has-error">{props.meta.touched && props.meta.error}</sub>
     </div>
   );
 };

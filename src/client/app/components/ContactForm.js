@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 
@@ -12,19 +10,22 @@ const validate = (values) => {
   if (!values.firstName) {
     errors.firstName = 'Required';
   }
+  if (!values.sec) {
+    errors.sec = 'Required';
+  }
   return errors;
 };
-const ContactForm = ({ handleSubmit, submitting }) => (
-  <form onSubmit={handleSubmit(showResults)}>
-    <Field
-      name="firstName"
-      label="fefwefwf"
-      component={inputText}
-      type="text"
-    />
-    <Submit disabled={submitting} />
-  </form>
-);
+const ContactForm = (props) => {
+  const { handleSubmit, submitting } = props;
+  return (
+    <form onSubmit={handleSubmit(showResults)}>
+      <pre>{JSON.stringify((submitting && !props.valid), 0, 2)}</pre>
+      <Field name="firstName" label="fefwefwf" component={inputText} type="text" />
+      <Field name="sec" label="sec" component={inputText} type="text" />
+      <Submit disabled={submitting || !props.valid} />
+    </form>
+  );
+};
 
 export default reduxForm({
   form: 'submitValidation',
