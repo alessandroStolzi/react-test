@@ -1,23 +1,23 @@
 import { createStore, applyMiddleware } from 'redux';
 import logger from 'redux-logger';
+import createSagaMiddleware from 'redux-saga';
 
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
+
 import reducer from './reducers/index';
 import App from './app';
+import helloSaga from './sagas/helloSaga';
 import './scss/main.scss';
 
-const store = createStore(reducer, applyMiddleware(logger));
 
-// The only way to mutate the internal state is to dispatch an action.
-// The actions can be serialized, logged or stored and later replayed.
-// store.dispatch(addVal({ val: 10 }))
-// // 1
-// store.dispatch(addVal({ val: 110 }))
-// // 2
-// store.dispatch(remVal({ val: 50 }))
-// // 1
+const sagaMiddleware = createSagaMiddleware();
+
+
+const store = createStore(reducer, applyMiddleware(logger, sagaMiddleware));
+
+sagaMiddleware.run(helloSaga);
 
 class Container extends React.Component {
   render() {
